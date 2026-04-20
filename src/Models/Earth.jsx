@@ -1,9 +1,11 @@
 import React, { useRef, useEffect } from 'react'
 import { useGLTF, useAnimations } from '@react-three/drei'
 
+const modelPath = `${import.meta.env.BASE_URL}WeltWithText.glb`
+
 export function Earth(props) {
   const group = useRef()
-  const { nodes, materials, animations } = useGLTF('/WeltWithText.glb')
+  const { nodes, materials, animations } = useGLTF(modelPath)
   const { actions } = useAnimations(animations, group)
 
   useEffect(() => {
@@ -56,4 +58,4 @@ export function Earth(props) {
   )
 }
 
-useGLTF.preload('/WeltWithText.glb')
+useGLTF.preload(modelPath)
